@@ -1,0 +1,18 @@
+<h1>List of restaurants</h1>
+<p><%= link_to "Create new restaurant", new_restaurant_path %></p>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      (<%= link_to "Delete",
+      restaurant_path(restaurant),
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?",
+      } %>)
+    </li>
+  <% end %>
+</ul>
+<% if @restaurants.empty? %>
+  <p>You have no restaurants!</p>
+<% end %>

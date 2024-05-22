@@ -1,0 +1,10 @@
+<h1 class="restaurant-name-show">
+  <%= @restaurant.name %>
+</h1>
+
+<h3>User's review</h3>
+<% @restaurant.reviews.each do |review| %>
+  <span>
+    <p class="user-review"><%= review.content %></p>
+  </span>
+<% end %>
